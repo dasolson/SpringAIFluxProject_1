@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="content"></div>
+	<script>
+		const eventSource = new EventSource("/stream2")
+		eventSource.onMessage = function(event) {
+			const p = document.createElement("p")
+			p.textContent = event.data // 태그와 태그 사이에 값을 전송
+			content.appendChild(p)
+		}
+	</script>
+</body>
+</html>
